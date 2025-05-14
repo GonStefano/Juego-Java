@@ -1,6 +1,4 @@
-package juegoAventura;
-
-import java.util.ArrayList;
+package juegoAventura.Entidades;
 
 public class Entidad {
 
