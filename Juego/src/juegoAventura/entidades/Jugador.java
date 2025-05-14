@@ -1,4 +1,4 @@
-package juegoAventura.Entidades;
+package juegoAventura.entidades;
 
 public class Jugador extends Entidad{
     private String clase;
