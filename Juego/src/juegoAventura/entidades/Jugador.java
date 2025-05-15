@@ -1,11 +1,14 @@
 package juegoAventura.entidades;
 
+import juegoAventura.gestores.GestorHabilidades;
+
 public class Jugador extends Entidad{
     private String clase;
 
     public Jugador(String nombre, String clase, int nivel, int experiencia) {
         super(nombre, nivel, experiencia);
         this.clase = clase;
+        gestorHabilidades = new GestorHabilidades(clase);
     }
 
     public String getClase() {

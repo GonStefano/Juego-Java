@@ -1,5 +1,7 @@
 package juegoAventura.entidades;
 
+import juegoAventura.gestores.GestorHabilidades;
+
 public class Entidad {
 
     protected String nombre;
@@ -9,6 +11,7 @@ public class Entidad {
     protected int defensa;
     protected int nivel;
     protected int experiencia;
+    protected GestorHabilidades gestorHabilidades;
 
     public Entidad(String nombre, int nivel, int experiencia) {
         this.nombre = nombre;
@@ -18,6 +21,7 @@ public class Entidad {
         this.defensa = 0;
         this.nivel = nivel;
         this.experiencia = experiencia;
+        this.gestorHabilidades = new GestorHabilidades();
     }
 
     public String getNombre() {
@@ -75,6 +79,11 @@ public class Entidad {
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
     }
+
+    public GestorHabilidades getGestorHabilidades() {
+        return gestorHabilidades;
+    }
+
 
     public void imprimir(){
         System.out.println(toString());
