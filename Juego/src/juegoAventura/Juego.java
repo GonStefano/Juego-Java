@@ -30,7 +30,8 @@ public class Juego {
             System.out.print("▶ Elige una opción: ");
             try {
                 op1 = teclado.nextInt();
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
+                teclado.nextLine();
                 op1 = -1;
             }
             switch (op1)
@@ -64,7 +65,8 @@ public class Juego {
             System.out.print("▶ Elige una opción: ");
             try {
                 op1 = teclado.nextInt();
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
+                teclado.nextLine();
                 op1 = -1;
             }
 
@@ -131,12 +133,14 @@ public class Juego {
     }
 
     private void crearNuevoJugador(Scanner teclado) {
-        int num;
-        System.out.print("\n📝 Ingresa el nombre de tu héroe: ");
         teclado.nextLine();
-        String nombre = teclado.nextLine();
-        String clase = "";
+        int num=0;
+        String nombre;
+        String clase="";
         do {
+            System.out.print("\n📝 Ingresa el nombre de tu héroe: ");
+            nombre = teclado.nextLine();
+
             System.out.print("\n📝 Clases: \n");
             System.out.println("1️⃣  Guerrero");
             System.out.println("2️⃣  Mago");
@@ -144,7 +148,9 @@ public class Juego {
             System.out.print("\n📝 Elige la clase de tu heroe: ");
             try {
                 num = teclado.nextInt();
+                teclado.nextLine();
             } catch (Exception e) {
+                teclado.nextLine();
                 num = -1;
             }
 
@@ -162,7 +168,7 @@ public class Juego {
                     System.out.println("Introduce un numero entre el 1-3");
                     break;
             }
-        } while (clase.equalsIgnoreCase("") && num != -1);
+        } while ( nombre.trim().isEmpty() || (num > 3 || num < 1));
 
         if (!gestor.verificarJugador(nombre)){
             gestor.jugadores.add(new Jugador(nombre, clase, 1, 0));
