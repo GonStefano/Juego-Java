@@ -1,6 +1,8 @@
 package juegoAventura.habilidades;
 
-public class HabilidadCuracion extends Habilidad {
+import java.io.Serializable;
+
+public class HabilidadCuracion extends Habilidad implements Serializable {
     private int cura;
 
     public HabilidadCuracion(String nombre, String descripcion, int mana, int cura) {

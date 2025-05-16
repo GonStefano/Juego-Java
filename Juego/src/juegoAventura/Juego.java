@@ -163,10 +163,26 @@ public class Juego {
                     break;
             }
         } while (clase.equalsIgnoreCase("") && num != -1);
+
+        if (!gestor.verificarJugador(nombre)){
+            gestor.jugadores.add(new Jugador(nombre, clase, 1, 0));
+            gestor.guardarJugador();
+            System.out.println("🎉 Héroe creado exitosamente. ¡Prepárate para la aventura!\n");
+
+            jugador = gestor.buscarJugadorPorNombre(nombre);
+        }
+        else {
+            System.out.println("\"❌ Héroe encontrado. El nombre ya fue usado\n\"");
+        }
     }
 
     private void mostrarEstadisticas() {
-        System.out.println("Estadisticas");
+        System.out.println("\n📜 LEYENDAS DEL REINO:");
+        gestor.ordenarJugadores();
+        for (Jugador j : gestor.jugadores) {
+            System.out.println("🧝 " + j.getNombre() + " | Clase: " + j.getClase() + " | Nivel: " + j.getNivel() + " | EXP: " + j.getExperiencia());
+        }
+        System.out.println();
     }
 
     private void jugar(Scanner teclado) {
