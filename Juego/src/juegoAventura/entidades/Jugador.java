@@ -2,7 +2,9 @@ package juegoAventura.entidades;
 
 import juegoAventura.gestores.GestorHabilidades;
 
-public class Jugador extends Entidad{
+import java.io.Serializable;
+
+public class Jugador extends Entidad implements Serializable {
     private String clase;
 
     public Jugador(String nombre, String clase, int nivel, int experiencia) {

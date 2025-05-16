@@ -2,9 +2,10 @@ package juegoAventura.gestores;
 
 import juegoAventura.habilidades.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GestorHabilidades {
+public class GestorHabilidades implements Serializable {
     private ArrayList<Habilidad> habilidades;
 
 

@@ -1,6 +1,6 @@
-package gestores;
+package juegoAventura.gestores;
 
-import entidades.Jugador;
+import juegoAventura.entidades.Jugador;
 
 import java.io.*;
 import java.util.ArrayList;

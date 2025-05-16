@@ -1,11 +1,18 @@
 package juegoAventura;
 
 import juegoAventura.entidades.Jugador;
+import juegoAventura.gestores.GestorDeJugadores;
 
 import java.util.Scanner;
 
 public class Juego {
+    private GestorDeJugadores gestor;
     private Jugador jugador;
+
+    public Juego(){
+        gestor = new GestorDeJugadores();
+        gestor.cargarJugadores();
+    }
 
     public void iniciar(Scanner teclado) {
         int op1;
@@ -99,14 +106,28 @@ public class Juego {
 
         System.out.println("      == HABILIDADES DE " + jugador.getNombre().toUpperCase() + " ==");
         System.out.println("----------------------------------------");
-
+        jugador.getGestorHabilidades().mostrarHabilidades();
     }
 
     private void iniciarSesion(Scanner teclado) {
         String nombre ="";
+        try {
             System.out.print("\n🔑 Nombre del héroe: ");
             teclado.nextLine();
             nombre = teclado.nextLine();
+        }catch (Exception e){
+            nombre = "";
+        }
+
+        if (!nombre.equals("")){
+            jugador = gestor.buscarJugadorPorNombre(nombre);
+        }
+
+        if (jugador != null) {
+            System.out.println("✨ Bienvenido de nuevo, valiente " + jugador.getNombre() + " (Nivel " + jugador.getNivel() + ")!");
+        } else if (!nombre.isEmpty()){
+            System.out.println("❌ Héroe no encontrado. ¿Quizás deberías crearlo primero?\n");
+        }
     }
 
     private void crearNuevoJugador(Scanner teclado) {

@@ -2,7 +2,9 @@ package juegoAventura.entidades;
 
 import juegoAventura.gestores.GestorHabilidades;
 
-public class Entidad {
+import java.io.Serializable;
+
+public class Entidad implements Serializable {
 
     protected String nombre;
     protected int vidaMaxima;
