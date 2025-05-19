@@ -99,8 +99,8 @@ public class Juego {
     private void mostrarMenu() {
         System.out.println("🧭 MENÚ PRINCIPAL");
         System.out.println("1️⃣  Jugar");
-        System.out.println("2️⃣  Ver las Habilidades");
-        System.out.println("3️⃣  Ver leyendas guardadas");
+        System.out.println("2️⃣  Habilidades");
+        System.out.println("3️⃣  Estadisticas");
         System.out.println("4️⃣  Salir del reino");
     }
 
