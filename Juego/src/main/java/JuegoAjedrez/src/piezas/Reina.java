@@ -1,6 +1,6 @@
-package piezas;
+package JuegoAjedrez.src.piezas;
 
-import util.Colores;
+import JuegoAjedrez.src.util.Colores;
 
 public class Reina extends Pieza {
     public Reina(boolean color, Posicion posicion) {

@@ -1,4 +1,4 @@
-package Excepciones;
+package JuegoAjedrez.src.Excepciones;
 
 public class CapturaAliadaExcepcion extends Exception {
     public CapturaAliadaExcepcion(String mensaje) {

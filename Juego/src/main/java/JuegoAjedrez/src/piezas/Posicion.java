@@ -1,4 +1,4 @@
-package piezas;
+package JuegoAjedrez.src.piezas;
 
 public class Posicion {
     private char x; // Horizontal o columnas (A-H)

@@ -1,8 +1,12 @@
+package JuegoAjedrez.src;
+
 // Ajedrez
 import java.util.Scanner;
 import util.*;
-import piezas.*;
-import Excepciones.*;
+import JuegoAjedrez.src.util.Terminal;
+import JuegoAjedrez.src.piezas.*;
+import JuegoAjedrez.src.Excepciones.*;
+import JuegoAjedrez.src.util.Colores;
 
 public class Tablero {
     private static final int DIMENSIONES = 8;
@@ -107,7 +111,7 @@ public class Tablero {
                 }
             }            
             return true;
-        } catch (MovimientoInvalidoExcepcion | CapturaAliadaExcepcion e) {
+        } catch (MovimientoInvalidoExcepcion e) {
             System.out.println("Error: " + e.getMessage());
             System.out.println("Por favor intenta otro movimiento.");
             return false;

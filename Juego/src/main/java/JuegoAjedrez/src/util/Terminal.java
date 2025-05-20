@@ -1,4 +1,4 @@
-package util;
+package JuegoAjedrez.src.util;
 
 public class Terminal {
     // sacado de internet para limpiar la consola

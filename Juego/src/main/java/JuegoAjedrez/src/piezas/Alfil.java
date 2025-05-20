@@ -1,6 +1,6 @@
-package piezas;
+package JuegoAjedrez.src.piezas;
 
-import util.Colores;
+import JuegoAjedrez.src.util.Colores;
 
 public class Alfil extends Pieza{
     public Alfil(boolean color, Posicion posicion) {

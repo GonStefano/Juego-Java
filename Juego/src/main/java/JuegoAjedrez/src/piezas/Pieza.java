@@ -1,4 +1,4 @@
-package piezas;
+package JuegoAjedrez.src.piezas;
 
 public abstract class Pieza {
     protected boolean color; // las negras serán false y las blancas true

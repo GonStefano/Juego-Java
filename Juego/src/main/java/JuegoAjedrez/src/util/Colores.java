@@ -1,4 +1,4 @@
-package util;
+package JuegoAjedrez.src.util;
 public class Colores {
     public static final String RESET = "\u001B[0m";
     public static final String NEGRO_BRIGHT = "\u001B[90m";

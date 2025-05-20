@@ -1,6 +1,6 @@
-package piezas;
+package JuegoAjedrez.src.piezas;
+import JuegoAjedrez.src.util.Colores;
 
-import util.Colores;
 public class Caballo extends Pieza {
     
     public Caballo(boolean color, Posicion posicion) {
