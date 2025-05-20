@@ -14,6 +14,10 @@ public class Juego {
         gestor.cargarJugadores();
     }
 
+    /**
+     * Metodo donde muestra el menu donde el jugador puede crear un heroe o iniciar sesion.
+     * @param teclado Scanner solicitado.
+     */
     public void iniciar(Scanner teclado) {
         int op1;
         do {
@@ -55,6 +59,10 @@ public class Juego {
         }
     }
 
+    /**
+     *Metodo que muestra el menu principal donde el jugador ya ha iniciado sesion, donde llama los metodos que estan dentro.
+     * @param teclado Scanner solicitado.
+     */
     private void mostrarMenuPrincipal(Scanner teclado){
         int op1;
         do {
@@ -90,12 +98,18 @@ public class Juego {
         } while (op1 != 4);
     }
 
+    /**
+     * Muestra el tituto del juegoo.
+     */
     private void mostrarTitulo() {
         System.out.println("\n╔════════════════════════════════════════╗");
         System.out.println("║       [=] LEYENDAS DEL DESTINO [=]     ║");
         System.out.println("╚════════════════════════════════════════╝\n");
     }
 
+    /**
+     * Muestra el menu despues de iniciar.
+     */
     private void mostrarMenu() {
         System.out.println("🧭 MENÚ PRINCIPAL");
         System.out.println("1️⃣  Jugar");
@@ -104,6 +118,9 @@ public class Juego {
         System.out.println("4️⃣  Salir del reino");
     }
 
+    /**
+     * Muestra habilidades del jugador.
+     */
     private void mostrarHabilidades(){
 
         System.out.println("      == HABILIDADES DE " + jugador.getNombre().toUpperCase() + " ==");
@@ -111,6 +128,10 @@ public class Juego {
         jugador.getGestorHabilidades().mostrarHabilidades();
     }
 
+    /**
+     * Metodo que permite acceder a los datos del jugador mediante el atributo gestor.
+     * @param teclado Scanner solicitado.
+     */
     private void iniciarSesion(Scanner teclado) {
         String nombre ="";
         try {
@@ -132,6 +153,10 @@ public class Juego {
         }
     }
 
+    /**
+     * Metodo que permite crear un jugador y almacenarlo en el archivo con el atributo gestor.
+     * @param teclado Scanner solicitado.
+     */
     private void crearNuevoJugador(Scanner teclado) {
         teclado.nextLine();
         int num=0;
@@ -145,6 +170,7 @@ public class Juego {
             System.out.println("1️⃣  Guerrero");
             System.out.println("2️⃣  Mago");
             System.out.println("3️⃣  Ladron");
+            System.out.println("4️⃣  Arquero");
             System.out.print("\n📝 Elige la clase de tu heroe: ");
             try {
                 num = teclado.nextInt();
@@ -164,14 +190,29 @@ public class Juego {
                 case 3:
                     clase = "Ladron";
                     break;
+                case 4:
+                    clase = "Arquero";
+                    break;
                 default:
-                    System.out.println("Introduce un numero entre el 1-3");
+                    System.out.println("Introduce un numero entre el 1-4");
                     break;
             }
-        } while ( nombre.trim().isEmpty() || (num > 3 || num < 1));
+        } while ( nombre.trim().isEmpty() || (num > 4 || num < 1));
 
         if (!gestor.verificarJugador(nombre)){
-//            gestor.jugadores.add(new Jugador(nombre, clase, 1, 0));
+            if (clase.equalsIgnoreCase("Guerrero")){
+                gestor.jugadores.add(new Jugador(nombre, clase, 100, 1, 40, 0));
+                System.out.println("guerrero");
+            } else if (clase.equalsIgnoreCase("Mago")) {
+                gestor.jugadores.add(new Jugador(nombre, clase, 60, 1, 80, 0));
+                System.out.println("mago");
+            } else if (clase.equalsIgnoreCase("Ladron")) {
+                gestor.jugadores.add(new Jugador(nombre, clase, 80, 1, 50, 0));
+                System.out.println("ladron");
+            } else if (clase.equalsIgnoreCase("Arquero")) {
+                gestor.jugadores.add(new Jugador(nombre, clase, 75, 1, 60, 0));
+                System.out.println("arquero");
+            }
             gestor.guardarJugador();
             System.out.println("🎉 Héroe creado exitosamente. ¡Prepárate para la aventura!\n");
 
@@ -182,15 +223,22 @@ public class Juego {
         }
     }
 
+    /**
+     * Metodo que usa el gestor de jugadores para leer y mostrar las estadisticas.
+     */
     private void mostrarEstadisticas() {
         System.out.println("\n📜 LEYENDAS DEL REINO:");
         gestor.ordenarJugadores();
         for (Jugador j : gestor.jugadores) {
-            System.out.println("🧝 " + j.getNombre() + " | Clase: " + j.getClase() + " | Nivel: " + j.getNivel() + " | EXP: " + j.getExperiencia());
+            System.out.println("🧝 Nombre: " + j.getNombre() + " | Clase: " + j.getClase() + " | Nivel: " + j.getNivel() + " | EXP: " + j.getExperiencia() + " | Ultima vez: " + jugador.getUltimaVez());
         }
         System.out.println();
     }
 
+    /**
+     * Metodo que se encargga del sistema del juego.
+     * @param teclado Scanner solicitado.
+     */
     private void jugar(Scanner teclado) {
         System.out.println("juego");
     }

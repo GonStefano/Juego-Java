@@ -29,6 +29,10 @@ public class Jugador extends Entidad implements Serializable {
         return ultimaVez;
     }
 
+    public void setUltimaVez(String ultimaVez) {
+        this.ultimaVez = ultimaVez;
+    }
+
     public void imprimir(){
         System.out.println(toString());
     }

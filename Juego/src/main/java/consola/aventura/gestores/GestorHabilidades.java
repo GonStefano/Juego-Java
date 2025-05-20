@@ -22,6 +22,10 @@ public class GestorHabilidades implements Serializable {
         configurar(clase);
     }
 
+    /**
+     * Metodo que se encarga de que el jugar al seleccionar una clase este tenga unas habilidades.
+     * @param clase clase del jugador.
+     */
     private void configurar(String clase){
         if (clase.equalsIgnoreCase("Guerrero")){
             HabilidadAtaque corteImparable = new HabilidadAtaque("Corte Imparable", "Un ataque devastador que atraviesa la defensa del enemigo.", 10, 30);
@@ -56,6 +60,10 @@ public class GestorHabilidades implements Serializable {
         }
     }
 
+    /**
+     * Metodo que permite obtener el array de habilidades.
+     * @return Array de habilidades.
+     */
     public  ArrayList<Habilidad> obtenerHabilidades(){
         ArrayList<Habilidad> hab = new ArrayList<>();
         for (Habilidad h : habilidades){
@@ -64,14 +72,25 @@ public class GestorHabilidades implements Serializable {
         return hab;
     }
 
+    /**
+     * Permite añadir habilidades
+     * @param habilidad Habilidad que se desea añadir
+     */
     public void añadirHabilidad(Habilidad habilidad){
         habilidades.add(habilidad);
     }
 
+    /**
+     * Permite eliminar una habilidad
+     * @param habilidad Habilidad que se desea eliminar.
+     */
     public void eliminarHabilidad(Habilidad habilidad){
         habilidades.remove(habilidad);
     }
 
+    /**
+     * Metodo que muestra todas las habilidades de la arraylist.
+     */
     public void mostrarHabilidades(){
         for (Habilidad h : habilidades){
             h.imprimir();
