@@ -1,12 +1,13 @@
-package consola.JuegoAjedrez.src;
+package consola.JuegoAjedrez;
 
 // Ajedrez
 import java.util.Scanner;
-import util.*;
-import consola.JuegoAjedrez.src.util.Terminal;
-import consola.JuegoAjedrez.src.piezas.*;
-import consola.JuegoAjedrez.src.Excepciones.*;
-import consola.JuegoAjedrez.src.util.Colores;
+
+
+import consola.JuegoAjedrez.util.Terminal;
+import consola.JuegoAjedrez.piezas.*;
+import consola.JuegoAjedrez.Excepciones.*;
+import consola.JuegoAjedrez.util.Colores;
 
 public class Tablero {
     private static final int DIMENSIONES = 8;

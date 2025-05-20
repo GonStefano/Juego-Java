@@ -1,6 +1,6 @@
-package consola.JuegoAjedrez.src.piezas;
+package consola.JuegoAjedrez.piezas;
 
-import consola.JuegoAjedrez.src.util.Colores;
+import consola.JuegoAjedrez.util.Colores;
 
 public class Torre extends Pieza {
     public Torre(boolean color, Posicion posicion) {

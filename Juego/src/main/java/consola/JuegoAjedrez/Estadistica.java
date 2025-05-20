@@ -1,5 +1,5 @@
 
-package consola.JuegoAjedrez.src;
+package consola.JuegoAjedrez;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

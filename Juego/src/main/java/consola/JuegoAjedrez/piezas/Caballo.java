@@ -1,5 +1,5 @@
-package consola.JuegoAjedrez.src.piezas;
-import consola.JuegoAjedrez.src.util.Colores;
+package consola.JuegoAjedrez.piezas;
+import consola.JuegoAjedrez.util.Colores;
 
 public class Caballo extends Pieza {
     

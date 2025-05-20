@@ -1,6 +1,6 @@
-package consola.JuegoAjedrez.src.piezas;
+package consola.JuegoAjedrez.piezas;
 
-import consola.JuegoAjedrez.src.util.Colores;
+import consola.JuegoAjedrez.util.Colores;
 
 public class Rey extends Pieza {
     public Rey(boolean color, Posicion posicion) {

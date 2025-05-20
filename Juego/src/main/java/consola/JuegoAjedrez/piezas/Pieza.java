@@ -1,4 +1,4 @@
-package consola.JuegoAjedrez.src.piezas;
+package consola.JuegoAjedrez.piezas;
 
 public abstract class Pieza {
     protected boolean color; // las negras serán false y las blancas true

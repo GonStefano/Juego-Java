@@ -1,4 +1,4 @@
-package consola.JuegoAjedrez.src.Excepciones;
+package consola.JuegoAjedrez.Excepciones;
 
 public class MovimientoInvalidoExcepcion extends Exception {
     public MovimientoInvalidoExcepcion(String mensaje) {

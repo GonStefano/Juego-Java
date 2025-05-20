@@ -171,7 +171,7 @@ public class Juego {
         } while ( nombre.trim().isEmpty() || (num > 3 || num < 1));
 
         if (!gestor.verificarJugador(nombre)){
-            gestor.jugadores.add(new Jugador(nombre, clase, 1, 0));
+//            gestor.jugadores.add(new Jugador(nombre, clase, 1, 0));
             gestor.guardarJugador();
             System.out.println("🎉 Héroe creado exitosamente. ¡Prepárate para la aventura!\n");
 

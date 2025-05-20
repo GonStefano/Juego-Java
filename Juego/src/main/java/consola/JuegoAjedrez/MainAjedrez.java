@@ -1,5 +1,5 @@
 
-package consola.JuegoAjedrez.src;
+package consola.JuegoAjedrez;
 
 public class MainAjedrez {
     public static void main(String[] args) {
