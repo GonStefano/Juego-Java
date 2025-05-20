@@ -18,6 +18,10 @@ public class XMLScoreManager {
     private Estadistica[] scores = new Estadistica[maxScores];
     private final String path = "score.xml";
 
+    /**
+     * Lee el archivo XML y carga las puntuaciones en el arreglo interno.
+     * Si el archivo no existe o hay error, imprime el stack trace.
+     */
     public void leerXML(){
         try {
             File file = new File(path);
@@ -40,6 +44,10 @@ public class XMLScoreManager {
         }
     }
 
+    /**
+     * Escribe en el archivo XML las puntuaciones actuales almacenadas en el arreglo.
+     * Si ocurre un error, imprime el stack trace.
+     */
     public  void escribirXML(){
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -63,10 +71,20 @@ public class XMLScoreManager {
         }
     }
 
+    /**
+     * Devuelve el arreglo con las puntuaciones actuales.
+     * @return arreglo de objetos Estadistica con las puntuaciones
+     */
     public Estadistica[] getScores() {
         return scores;
     }
 
+    /**
+     * Añade un nuevo score al arreglo de puntuaciones si es mayor que alguno de los existentes.
+     * Mantiene el arreglo ordenado de mayor a menor y descarta la puntuación más baja si es necesario.
+     * @param score puntuación nueva a añadir
+     * @return true si la puntuación fue añadida, false si no fue suficientemente alta
+     */
     public boolean añadirScore(int score){
         for (Estadistica s : scores){
             if (s.getScore() < score) {
@@ -79,12 +97,19 @@ public class XMLScoreManager {
         return false;
     }
 
+    /**
+     * Imprime por consola todas las puntuaciones actuales almacenadas.
+     */
     public void obtenerScores(){
         for (Estadistica s : scores){
             System.out.println(s.getScore());
         }
     }
 
+    /**
+     * Devuelve la cantidad máxima de puntuaciones que puede almacenar.
+     * @return número máximo de puntuaciones
+     */
     public int tamañoScores(){
         return scores.length;
     }

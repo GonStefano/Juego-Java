@@ -11,6 +11,10 @@ public class Sonido {
 
     private final double vol =0.2;
 
+    /**
+     * Reproduce un archivo de sonido especificado por su ruta.
+     * @param sound Ruta del archivo de sonido (preferiblemente .wav).
+     */
     public void  playSound(String sound){
         try {
             File soundFile = new File(sound);

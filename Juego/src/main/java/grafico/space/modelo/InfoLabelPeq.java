@@ -27,6 +27,10 @@ public class InfoLabelPeq extends Label {
         setText(text);
     }
 
+    /**
+     * Aplica la fuente personalizada a la etiqueta.
+     * Si ocurre un error al cargar la fuente, se utiliza la fuente "Verdana" como alternativa.
+     */
     private void setLabelFont(){
         try {
             InputStream input = getClass().getResourceAsStream(font_Path);

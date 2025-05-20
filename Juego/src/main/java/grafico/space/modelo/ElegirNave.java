@@ -35,6 +35,10 @@ public class ElegirNave extends VBox {
         return isCircleChoosen;
     }
 
+    /**
+     * Establece si esta nave está seleccionada y actualiza la imagen del círculo en consecuencia.
+     * @param isCircleChoosen true para marcar como seleccionada, false para desmarcar.
+     */
     public void setIsCircleChoosen(boolean isCircleChoosen){
         this.isCircleChoosen=isCircleChoosen;
         String imageToSet = this.isCircleChoosen ? circleChoosen : circleNotChoosen;

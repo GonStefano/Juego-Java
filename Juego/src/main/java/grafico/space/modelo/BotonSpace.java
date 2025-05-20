@@ -23,6 +23,10 @@ public class BotonSpace extends Button {
         initializeButtonListeners();
     }
 
+    /**
+     * Establece la fuente personalizada del botón.
+     * Si no se encuentra la fuente especificada, se usa la fuente "Verdana".
+     */
     private void setButtonFont() {
         try {
             InputStream font = getClass().getResourceAsStream(font_path);
@@ -32,18 +36,33 @@ public class BotonSpace extends Button {
         }
     }
 
+    /**
+     * Aplica el estilo visual cuando el botón es presionado.
+     * También ajusta la altura y la posición Y del botón para simular un efecto de presión.
+     */
     private void setBottonPressedStyle(){
         setStyle(botton_pressed);
         setPrefHeight(45);
         setLayoutY(getLayoutY() + 4);
     }
 
+    /**
+     * Restaura el estilo visual cuando el botón deja de ser presionado.
+     * Restablece la altura y la posición Y original.
+     */
     private void setBottonReleasedStyle(){
         setStyle(botton_released);
         setPrefHeight(49);
         setLayoutY(getLayoutY() - 4);
     }
 
+    /**
+     * Inicializa los eventos del ratón para cambiar el estilo y aplicar efectos visuales.
+     * - Presionar: cambia estilo a presionado
+     * - Soltar: vuelve al estilo original
+     * - Entrar: agrega sombra
+     * - Salir: elimina la sombra
+     */
     private void initializeButtonListeners(){
         setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override

@@ -26,6 +26,10 @@ public class InfoLabel extends Label {
         setBackground(new Background(bgroundImage));
     }
 
+    /**
+     * Aplica la fuente personalizada a la etiqueta.
+     * Si no se encuentra el archivo de fuente, se utiliza "Verdana" como fuente alternativa.
+     */
     private void setLabelFont(){
         try {
             InputStream font = getClass().getResourceAsStream(font_path);

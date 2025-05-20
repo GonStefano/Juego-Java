@@ -23,7 +23,11 @@ public class Subescena extends SubScene {
         setLayoutY(180);
     }
 
-
+    /**
+     * Anima el movimiento horizontal de la subescena para mostrar u ocultar el panel.
+     * Cuando está oculta, se mueve hacia la izquierda para mostrarse.
+     * Cuando está visible, se mueve hacia la derecha para ocultarse.
+     */
     public void moveSubscene(){
         TranslateTransition transition = new TranslateTransition();
         transition.setDuration(Duration.seconds(0.3));
@@ -40,6 +44,11 @@ public class Subescena extends SubScene {
         transition.play();
     }
 
+    /**
+     * Devuelve el AnchorPane raíz contenido dentro de esta subescena,
+     * para permitir añadir componentes gráficos adicionales.
+     * @return AnchorPane raíz de la subescena.
+     */
     public AnchorPane getPane(){
         return (AnchorPane) this.getRoot();
     }
