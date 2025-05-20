@@ -1,14 +1,11 @@
-package consola.buscaminas;
+package consola.Buscaminas;
 
-import java.util.Arrays;
-import java.util.Random;
-
+import java.util.*;
 
 public class Buscaminas {
     private static final char MINA = '*';
     private static final char VACIO = ' ';
     private static final char BANDERA = 'F';
-
 
     char[][] tableroVisible;
     private char[][] tableroMinas;
@@ -16,7 +13,10 @@ public class Buscaminas {
     private boolean primeraJugada = true;
     private int filas, columnas, minas;
 
-
+    /**
+     * Constructor que inicializa el juego según el nivel de dificultad.
+     * @param nivel Nivel de dificultad (1 = fácil, 2 = medio, 3 = difícil)
+     */
     public Buscaminas(int nivel) {
         switch (nivel) {
             case 1 -> { filas = 8; columnas = 8; minas = 10; }
@@ -31,7 +31,11 @@ public class Buscaminas {
         for (char[] row : tableroMinas) Arrays.fill(row, VACIO);
     }
 
-
+    /**
+     * Coloca minas aleatoriamente en el tablero, asegurando que la primera jugada sea segura.
+     * @param x Fila de la primera jugada
+     * @param y Columna de la primera jugada
+     */
     private void colocarMinas(int x, int y) {
         Random r = new Random();
         int colocadas = 0;
@@ -46,7 +50,9 @@ public class Buscaminas {
         calcularNumeros();
     }
 
-
+    /**
+     * Calcula y asigna los números de minas vecinas a cada celda vacía.
+     */
     private void calcularNumeros() {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -57,7 +63,12 @@ public class Buscaminas {
         }
     }
 
-
+    /**
+     * Cuenta el número de minas alrededor de una celda.
+     * @param x Fila
+     * @param y Columna
+     * @return Número de minas adyacentes
+     */
     private int contarMinas(int x, int y) {
         int count = 0;
         for (int dx = -1; dx <= 1; dx++)
@@ -69,15 +80,17 @@ public class Buscaminas {
         return count;
     }
 
-
+    /**
+     * Revela una celda y, si está vacía, revela recursivamente las celdas vecinas.
+     * @param x Fila
+     * @param y Columna
+     */
     private void revelar(int x, int y) {
         if (x < 0 || y < 0 || x >= filas || y >= columnas || descubierto[x][y])
             return;
 
-
         descubierto[x][y] = true;
         tableroVisible[x][y] = tableroMinas[x][y];
-
 
         if (tableroMinas[x][y] == VACIO) {
             for (int dx = -1; dx <= 1; dx++)
@@ -86,13 +99,18 @@ public class Buscaminas {
         }
     }
 
-
+    /**
+     * Procesa una jugada del usuario.
+     * @param x Fila seleccionada
+     * @param y Columna seleccionada
+     * @param ponerBandera True si se desea colocar/quitar una bandera
+     * @return True si el juego continúa, False si se ha perdido
+     */
     public boolean jugar(int x, int y, boolean ponerBandera) {
         if (x < 0 || y < 0 || x >= filas || y >= columnas) {
             System.out.println("Movimiento fuera de rango.");
             return true;
         }
-
 
         if (ponerBandera) {
             if (tableroVisible[x][y] == BANDERA) tableroVisible[x][y] = '#';
@@ -100,12 +118,10 @@ public class Buscaminas {
             return true;
         }
 
-
         if (primeraJugada) {
             colocarMinas(x, y);
             primeraJugada = false;
         }
-
 
         if (tableroMinas[x][y] == MINA) {
             tableroVisible[x][y] = MINA;
@@ -114,12 +130,14 @@ public class Buscaminas {
             return false;
         }
 
-
         revelar(x, y);
         return true;
     }
 
-
+    /**
+     * Muestra un tablero en la consola.
+     * @param tablero Matriz que representa el tablero a mostrar
+     */
     public void mostrarTablero(char[][] tablero) {
         System.out.print("   ");
         for (int j = 0; j < columnas; j++) System.out.print(j + " ");
@@ -131,7 +149,10 @@ public class Buscaminas {
         }
     }
 
-
+    /**
+     * Verifica si el jugador ha ganado (todas las celdas no-mina descubiertas).
+     * @return True si ha ganado, False en caso contrario
+     */
     public boolean haGanado() {
         int descubiertas = 0;
         for (int i = 0; i < filas; i++)
@@ -139,6 +160,4 @@ public class Buscaminas {
                 if (descubierto[i][j]) descubiertas++;
         return descubiertas == (filas * columnas - minas);
     }
-
-
 }
