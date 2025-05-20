@@ -1,6 +1,7 @@
 package consola.juegoAventura.entidades;
 
 import consola.juegoAventura.gestores.GestorHabilidades;
+import consola.juegoAventura.habilidades.*;
 
 import java.io.Serializable;
 
@@ -10,16 +11,16 @@ public class Entidad implements Serializable {
     protected int vidaMaxima;
     protected int vidaActual;
     protected int mana;
+    protected int manaMax;
     protected int defensa;
     protected int nivel;
     protected int experiencia;
     protected GestorHabilidades gestorHabilidades;
 
-    public Entidad(String nombre, int nivel, int experiencia) {
+    public Entidad(String nombre, int nivel, int mana, int experiencia) {
         this.nombre = nombre;
-        this.vidaMaxima = 100;
-        this.vidaActual = vidaMaxima;
-        this.mana = 100;
+        this.mana = mana;
+        manaMax = mana;
         this.defensa = 0;
         this.nivel = nivel;
         this.experiencia = experiencia;
@@ -82,10 +83,87 @@ public class Entidad implements Serializable {
         this.experiencia = experiencia;
     }
 
+    public int getManaMax() {
+        return manaMax;
+    }
+
     public GestorHabilidades getGestorHabilidades() {
         return gestorHabilidades;
     }
 
+    /**
+     * Se encarga de atacar a la entidad que se solicita.
+     * @param enemigo Monstruo al que queremos atacar.
+     * @param ataque Habilidad que vamos a usar conta el enemigo
+     * @return
+     */
+    public boolean atacar(Entidad enemigo, HabilidadAtaque ataque){
+        if (getMana()<ataque.getMana()){
+            System.out.println("No tienes suficiente mana para esta habilidad");
+            return false;
+        }
+        if (enemigo.getDefensa() > 0){
+            if (enemigo.getDefensa() > ataque.getDaño()){
+                setMana(getMana()- ataque.getMana());
+                enemigo.setDefensa(enemigo.getDefensa() - ataque.getDaño());
+            }
+            else if (enemigo.getDefensa() <= ataque.getMana()){
+                setMana(getMana() - ataque.getMana());
+                enemigo.setVidaActual(enemigo.getVidaActual() - (ataque.getDaño() - enemigo.getDefensa()));
+                enemigo.setDefensa(0);
+            }
+        }else {
+            enemigo.setVidaActual(enemigo.getVidaActual() - ataque.getDaño());
+            setMana(getMana()-ataque.getMana());
+        }
+
+        if (enemigo.getVidaActual()<0){
+            enemigo.setVidaActual(0);
+        }
+        System.out.println(nombre + " ha atacado con " + ataque.getNombre() + " y le ha causado " + ataque.getDaño() + " de daño");
+        return true;
+    }
+
+    /**
+     * Se encarga de poner defensa en el jugador
+     * @param defensa Habilidad que se aplica en el jugador
+     * @return retorna un booleano, verdadero si se ha completadom y falso si no se ha podido usar la habilidad.
+     */
+    public boolean defender(HabilidadDefensa defensa){
+        if (getMana() < defensa.getMana()){
+            return false;
+        }
+        setDefensa(defensa.getDefensa());
+        setMana(getMana() - defensa.getMana());
+        System.out.println(nombre + " ha usado " + defensa.getNombre());
+        return true;
+    }
+
+    /**
+     * Se encarga de curar al jugador
+     * @param curar Habilidad que se aplica en el jugador
+     * @return retorna un booleano, verdadero si se ha completadom y falso si no se ha podido curar.
+     */
+    public boolean curar(HabilidadCuracion curar){
+        System.out.println(nombre + " ha usado " + curar.getNombre());
+        setVidaActual(vidaActual + curar.getCura());
+
+        if (getMana() >= curar.getMana()){
+            if (vidaActual > vidaMaxima){
+
+                setVidaActual(vidaMaxima);
+                System.out.println(nombre + " ha recuperado toda la vida!");
+
+            }else {
+
+                System.out.println(nombre + " tiene " + vidaActual + " de salud");
+
+            }
+            return  true;
+        }
+        System.out.println("No tienes suficiente mana para esta habilidad");
+        return false;
+    }
 
     public void imprimir(){
         System.out.println(toString());
