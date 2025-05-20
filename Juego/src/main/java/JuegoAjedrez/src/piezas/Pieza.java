@@ -9,6 +9,8 @@ public abstract class Pieza {
         this.posicion = posicion;
     }
 
+    public abstract boolean movimiento(Posicion destino);
+
     public abstract String mostrarSimbolo();
 
     public boolean getColor() {
