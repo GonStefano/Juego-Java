@@ -99,6 +99,64 @@ public class Tablero {
         }
     }
 
+    public boolean moverPieza(Posicion origen, Posicion destino) throws MovimientoInvalidoExcepcion, CapturaAliadaExcepcion {
+        int filaOrigen = 8 - origen.getY();
+        int columnaOrigen = origen.getX() - 'A';
+    
+        int filaDestino = 8 - destino.getY();
+        int columnaDestino = destino.getX() - 'A';
+    
+        Pieza pieza = tablero[filaOrigen][columnaOrigen];
+
+        if (pieza.getColor() != turnoBlancas) {
+            if (turnoBlancas) {
+                System.out.println("Es el turno de las blancas.");
+            } else {
+                System.out.println("Es el turno de las negras.");
+            }
+            return false;
+        }
+
+        // Si no hay pieza en origen = no se puede mover, logicamente
+        // (=============)
+        if (pieza == null) {
+            System.out.println("No hay pieza en la casilla de origen.");
+            throw new MovimientoInvalidoExcepcion("Movimiento invalido: no hay pieza en la casilla de origen.");
+        }
+    
+        // validar el movimiento usando su l´ogica
+        // (==========================)
+        if (!pieza.movimiento(destino)) {
+            System.out.println("Movimiento no válido para esta pieza.");
+            throw new MovimientoInvalidoExcepcion("Movimiento invalido: movimiento no valido para esta pieza.");
+        }
+    
+        // si hay una pieza nuestra en la casilla destino
+        Pieza objetivo = tablero[filaDestino][columnaDestino];
+        // (================ && =======================================)
+        if (objetivo != null && objetivo.getColor() == pieza.getColor()) {
+            System.out.println("No puedes capturar una pieza aliada.");
+            throw new CapturaAliadaExcepcion("Movimiento invalido: no puedes capturar una pieza aliada.");
+        }
+
+        // (====================== || ====================== || ======================))
+        if (pieza instanceof Torre || pieza instanceof Alfil || pieza instanceof Reina) {
+            if (hayPiezasEntre(origen, destino)) {
+                System.out.println("Hay piezas bloqueando el camino.");
+                throw new MovimientoInvalidoExcepcion("Movimiento invalido: hay piezas bloqueando el camino.");
+            }
+        }
+    
+        tablero[filaDestino][columnaDestino] = pieza; // mover la pieza al destino
+        pieza.setPosicion(destino);
+        tablero[filaOrigen][columnaOrigen] = null; // quitar la pieza del origen para no duplicarla
+    
+        System.out.println("Movimiento realizado.");
+        turnoBlancas = !turnoBlancas;
+        mostrarTablero();
+        return true;
+    }
+
     public void mostrarTablero() {
         System.out.println(Colores.AZUL_BRIGHT + "BLANCAS: Q, K, B, C, R, P" + Colores.RESET);
         System.out.println(Colores.AMARILLO_BRIGHT + "NEGRAS: Q, K, B, C, R, P" + Colores.RESET);
