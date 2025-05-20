@@ -24,7 +24,13 @@ Este proyecto tiene como objetivo desarrollar una colección de **minijuegos** e
 
 ##  Juegos en 2D
 
-Actualmente se encuentran en desarrollo dos minijuegos con gráficos en 2D. Serán implementados con tecnologías como JavaFX para ofrecer una experiencia visual interactiva.
+En esta sección se incluyen dos minijuegos con gráficos en 2D que están siendo desarrollados con JavaFX y Swing:
+
+1. ###  SpaceRunner  
+   Un juego arcade en el que el jugador controla una nave espacial que debe esquivar meteoritos y recolectar estrellas para aumentar su puntaje. A medida que el tiempo avanza, la dificultad aumenta con más obstáculos. El objetivo es sobrevivir el mayor tiempo posible mientras se alcanza la mayor puntuación.
+
+2. ###  Buscaminas (Versión 2D)  
+   Adaptación visual del clásico buscaminas. El jugador interactúa con una cuadrícula gráfica para descubrir celdas vacías o marcar posibles minas. El juego finaliza cuando se revelan todas las celdas seguras o se detona una mina. Esta versión ofrece una experiencia más intuitiva mediante interfaz gráfica.
 
 ---
 
@@ -32,6 +38,7 @@ Actualmente se encuentran en desarrollo dos minijuegos con gráficos en 2D. Ser�
 
 - Java
 - JavaFX (para los juegos 2D)
+- Swing
 - Programación orientada a objetos
 - Diseño modular por clases
 
