@@ -1,4 +1,4 @@
-package consola.juegoAventura.habilidades;
+package consola.aventura.habilidades;
 
 import java.io.Serializable;
 

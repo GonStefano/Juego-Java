@@ -1,6 +1,6 @@
-package consola.juegoAventura.gestores;
+package consola.aventura.gestores;
 
-import consola.juegoAventura.entidades.Jugador;
+import consola.aventura.entidades.Jugador;
 
 import java.io.*;
 import java.util.ArrayList;

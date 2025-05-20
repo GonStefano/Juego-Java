@@ -1,9 +1,9 @@
-package consola.juegoAventura.gestores;
+package consola.aventura.gestores;
 
-import consola.juegoAventura.habilidades.Habilidad;
-import consola.juegoAventura.habilidades.HabilidadAtaque;
-import consola.juegoAventura.habilidades.HabilidadCuracion;
-import consola.juegoAventura.habilidades.HabilidadDefensa;
+import consola.aventura.habilidades.Habilidad;
+import consola.aventura.habilidades.HabilidadAtaque;
+import consola.aventura.habilidades.HabilidadCuracion;
+import consola.aventura.habilidades.HabilidadDefensa;
 
 import java.io.Serializable;
 import java.util.ArrayList;

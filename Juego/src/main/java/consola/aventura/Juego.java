@@ -1,7 +1,7 @@
-package consola.juegoAventura;
+package consola.aventura;
 
-import consola.juegoAventura.entidades.Jugador;
-import consola.juegoAventura.gestores.GestorDeJugadores;
+import consola.aventura.entidades.Jugador;
+import consola.aventura.gestores.GestorDeJugadores;
 
 import java.util.Scanner;
 

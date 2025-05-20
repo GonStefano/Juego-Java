@@ -1,7 +1,7 @@
 module juegos.juegos {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.desktop;
+    requires javafx.swing;
 
 
     opens juegos.juegos to javafx.fxml;

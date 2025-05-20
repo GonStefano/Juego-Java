@@ -1,6 +1,6 @@
-package consola.juegoAventura.entidades;
+package consola.aventura.entidades;
 
-import consola.juegoAventura.gestores.GestorHabilidades;
+import consola.aventura.gestores.GestorHabilidades;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

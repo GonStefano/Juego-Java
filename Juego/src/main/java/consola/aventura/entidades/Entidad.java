@@ -1,7 +1,7 @@
-package consola.juegoAventura.entidades;
+package consola.aventura.entidades;
 
-import consola.juegoAventura.gestores.GestorHabilidades;
-import consola.juegoAventura.habilidades.*;
+import consola.aventura.gestores.GestorHabilidades;
+import consola.aventura.habilidades.*;
 
 import java.io.Serializable;
 

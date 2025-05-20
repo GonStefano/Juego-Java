@@ -1,4 +1,4 @@
-package consola.juegoBuscaminas;
+package consola.buscaminas;
 
 import java.util.Arrays;
 import java.util.Random;
