@@ -1,4 +1,4 @@
-package consola.Buscaminas;
+package consola.buscaminas;
 
 import java.util.*;
 
