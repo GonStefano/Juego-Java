@@ -44,6 +44,61 @@ public class Tablero {
         }
     }
 
+        public boolean introducirMovimiento() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduce el movimiento (ej: A1 A3): ");
+        String input = scanner.nextLine().toUpperCase();
+        Terminal.clearConsole(false);
+
+        try {
+            String[] partes = input.split(" ");
+            if (partes.length != 2) {
+                throw new MovimientoInvalidoExcepcion("Formato inválido. Usa el formato: A1 A3");
+            }
+
+            String movimientoOrigen = partes[0];
+            String movimientoDestino = partes[1];
+
+            if (movimientoOrigen.length() != 2 || movimientoDestino.length() != 2) {
+                throw new MovimientoInvalidoExcepcion("Coordenadas inválidas. Usa letras A-H y números 1-8.");
+            }
+
+            char letraOrigen = movimientoOrigen.charAt(0);
+            int numeroOrigen = Character.getNumericValue(movimientoOrigen.charAt(1));
+
+            char letraDestino = movimientoDestino.charAt(0);
+            int numeroDestino = Character.getNumericValue(movimientoDestino.charAt(1));
+
+            Posicion origen = new Posicion(letraOrigen, numeroOrigen);
+            Posicion destino = new Posicion(letraDestino, numeroDestino);
+
+            // para las estadisticas
+            int filaOrigen = 8 - numeroOrigen;
+            int colOrigen = letraOrigen - 'A';
+            int filaDestino = 8 - numeroDestino;
+            int colDestino = letraDestino - 'A';
+
+            Pieza piezaOrigen = tablero[filaOrigen][colOrigen];
+            Pieza piezaDestino = tablero[filaDestino][colDestino];
+
+            if (piezaDestino != null && piezaOrigen != null && piezaOrigen.getColor() != piezaDestino.getColor()) {
+                if (piezaOrigen.getColor()) { // si es blanca
+                    capturasBlancas++;
+                } else {
+                    capturasNegras++;
+                }
+            }            
+            return true;
+        } catch (MovimientoInvalidoExcepcion | CapturaAliadaExcepcion e) {
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Por favor intenta otro movimiento.");
+            return false;
+        } catch (Exception e) {
+            System.out.println("Error inesperado: " + e.getMessage());
+            return false;
+        }
+    }
+
     public void mostrarTablero() {
         System.out.println(Colores.AZUL_BRIGHT + "BLANCAS: Q, K, B, C, R, P" + Colores.RESET);
         System.out.println(Colores.AMARILLO_BRIGHT + "NEGRAS: Q, K, B, C, R, P" + Colores.RESET);
