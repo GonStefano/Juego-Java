@@ -45,6 +45,24 @@ public class Tablero {
     }
 
         public boolean introducirMovimiento() {
+            if (!hayReyVivo(true)) {
+                System.out.println("Fin del juego: ¡El rey blanco ha sido capturado!");
+                System.out.println("Capturas realizadas por blancas: " + capturasBlancas);
+                System.out.println("Capturas realizadas por negras: " + capturasNegras);
+
+                Estadistica.guardarEnArchivo("Negras", capturasBlancas, capturasNegras);
+                System.exit(0);
+
+            }
+            if (!hayReyVivo(false)) {
+                System.out.println("Fin del juego: ¡El rey negro ha sido capturado!");
+                System.out.println("Capturas realizadas por blancas: " + capturasBlancas);
+                System.out.println("Capturas realizadas por negras: " + capturasNegras);
+
+                Estadistica.guardarEnArchivo("Blancas", capturasBlancas, capturasNegras);
+                System.exit(0);
+
+            }
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduce el movimiento (ej: A1 A3): ");
         String input = scanner.nextLine().toUpperCase();
@@ -87,7 +105,8 @@ public class Tablero {
                 } else {
                     capturasNegras++;
                 }
-            }            
+            }
+            moverPieza(origen, destino);
             return true;
         } catch (MovimientoInvalidoExcepcion | CapturaAliadaExcepcion e) {
             System.out.println("Error: " + e.getMessage());
@@ -157,6 +176,18 @@ public class Tablero {
         return true;
     }
 
+    public boolean hayReyVivo(boolean color) {
+        for (int fila = 0; fila < 8; fila++) {
+            for (int col = 0; col < 8; col++) {
+                Pieza p = tablero[fila][col];
+                if (p != null && p instanceof Rey && p.getColor() == color) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public void mostrarTablero() {
         System.out.println(Colores.AZUL_BRIGHT + "BLANCAS: Q, K, B, C, R, P" + Colores.RESET);
         System.out.println(Colores.AMARILLO_BRIGHT + "NEGRAS: Q, K, B, C, R, P" + Colores.RESET);
@@ -192,6 +223,7 @@ public class Tablero {
         System.out.println(Colores.ROJO_BRIGHT + "     A     B     C     D     E     F     G     H" + Colores.RESET);
         System.out.println();
         // llamadda al metodo de leer el movimiento
+        introducirMovimiento();
     }
 
 
