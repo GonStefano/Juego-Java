@@ -14,4 +14,42 @@ public class Reina extends Pieza {
             return Colores.AMARILLO_BRIGHT + "Q";
         }
     }
+
+     public boolean movimiento(Posicion destino) { // juntando la logica de la torre y el alfil sacamos la reina
+        Posicion origen = this.getPosicion();
+
+        int filaActual = origen.getY();
+        int filaDestino = destino.getY();
+
+        int columnaActual = origen.getX() - 'A';
+        int columnaDestino = destino.getX() - 'A';
+
+        int diagonalX = Math.abs(destino.getX() - origen.getX());
+        int diagonalY = Math.abs(destino.getY() - origen.getY());
+
+        // (=============== || =============================== && ===============================)
+        if (destino == null || origen.getX() == destino.getX() && origen.getY() == destino.getY()) {
+            System.out.println("Movimiento invalido de la reina");
+            return false;
+        }
+
+        // (========================= && ===============================)
+        if (filaActual == filaDestino && columnaActual == columnaDestino) {
+            return false;
+        }
+
+        // (========================= || ===============================)
+        if (filaActual == filaDestino || columnaActual == columnaDestino) {
+            return true;
+        }
+
+        // (======================)
+        if (diagonalX == diagonalY) {
+            // System.out.println("Movimiento diagonal de la reina valido");
+            return true;
+        }
+
+        System.out.println("Movimiento invalido de la reina");
+        return false;
+    }
 }
