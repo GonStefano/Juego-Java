@@ -14,4 +14,15 @@ public class Rey extends Pieza {
             return Colores.AMARILLO_BRIGHT + "K";
         }
     }
+
+    public boolean movimiento(Posicion destino) {
+        Posicion origen = this.getPosicion();
+        
+        // (=============== || =============================== && ===============================)
+        if (destino == null || origen.getX() == destino.getX() && origen.getY() == destino.getY()) {
+            System.out.println("Movimiento invalido del Rey");
+            return false;
+        }
+        return true;
+    }
 }
