@@ -110,7 +110,8 @@ public class Tablero {
                 } else {
                     capturasNegras++;
                 }
-            }            
+            }
+            moverPieza(origen, destino);
             return true;
         } catch (MovimientoInvalidoExcepcion e) {
             System.out.println("Error: " + e.getMessage());
