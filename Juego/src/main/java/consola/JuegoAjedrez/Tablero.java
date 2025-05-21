@@ -21,6 +21,9 @@ public class Tablero {
         colocarPiezas();
     }
 
+    /**
+     * Coloca las piezas blancas y negras en sus posiciones iniciales en el tablero.
+     */
     private void colocarPiezas() {
     // PIEZAS NEGRAS
     tablero[0][0] = new Torre(false, new Posicion('A', 8));
@@ -35,9 +38,6 @@ public class Tablero {
             tablero[1][i] = new Peon(false, new Posicion((char) ('A' + i), 7));
         }
 
- /**
- * Coloca las piezas blancas y negras en sus posiciones iniciales en el tablero.
- */
     // PIEZAS BLANCAS
     tablero[7][0] = new Torre(true, new Posicion('A', 1));
     tablero[7][1] = new Caballo(true, new Posicion('B', 1));
