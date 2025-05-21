@@ -188,3 +188,109 @@ Volviendo al menú principal...
 
 - **JavaFX** para el renderizado gráfico y manejo de eventos
 - **POO** para estructurar entidades como `Nave`, `Meteorito`, `Estrella`, `Juego`, etc.
+
+### Juego de Ajedrez  
+Juego de Ajedrez por Turnos en Consola
+
+#### Descripción
+
+Este es un juego de ajedrez basado en consola, implementado en Java. El juego permite a dos jugadores (sin IA) turnarse para mover piezas en un tablero de 8x8, siguiendo las reglas clásicas del ajedrez. Cada pieza se mueve de acuerdo a sus propias reglas, y el objetivo es dar jaque mate al rey del oponente.
+
+#### Características
+
+- Juego de ajedrez en modo texto desde la terminal.
+- Turnos alternos entre jugador blanco y negro.
+- Implementación completa de las piezas: Rey, Reina, Torre, Alfil, Caballo, Peón.
+- Reglas estándar de movimiento y captura.
+- Detección de movimientos inválidos y captura ilegal.
+- Registro de estadísticas de las partidas en archivo externo.
+- Interfaz básica con entrada de texto para movimientos.
+- Manejo de excepciones personalizadas para errores de jugada.
+
+#### Clases y responsabilidades
+
+##### Pieza (Clase abstracta)
+
+- Clase base para todas las piezas del juego.
+- Atributos: color, posición.
+- Métodos comunes: validación de movimiento, representación en texto.
+
+##### Rey, Reina, Torre, Alfil, Caballo, Peón
+
+- Heredan de `Pieza`.
+- Cada clase implementa la lógica específica de movimiento.
+
+##### Tablero
+
+- Representa el estado del tablero de ajedrez.
+- Maneja el movimiento de piezas, verificación de capturas y turnos.
+- Muestra el tablero en la consola.
+
+##### MainAjedrez
+
+- Clase principal del juego.
+- Controla el flujo del juego: turnos, ingreso de movimientos y finalización.
+
+##### Estadistica
+
+- Maneja la lectura y escritura de datos en un archivo de estadísticas (`estadisticas.txt`).
+- Registra partidas jugadas, ganadas, perdidas, etc.
+
+##### Excepciones personalizadas
+
+- `MovimientoInvalidoExcepcion`: se lanza cuando un movimiento no es permitido por las reglas.
+- `CapturaAliadaExcepcion`: impide capturar piezas del mismo color.
+
+##### Utilidades
+
+- `Colores`: Maneja la visualización en consola con colores (si está disponible).
+- `Terminal`: Funciones auxiliares para entrada y salida de datos en la consola.
+
+### Cómo jugar
+
+1. Ejecuta el programa desde la clase `MainAjedrez`.
+2. El tablero se muestra en consola con las piezas iniciales.
+3. Introduce los movimientos en el formato solicitado (por ejemplo: `e2 e4`).
+4. El turno alterna entre jugadores.
+5. Las piezas se mueven según las reglas del ajedrez.
+6. El juego finaliza cuando hay jaque mate o se detiene manualmente.
+
+### Ejemplo de flujo de juego
+```text
+Se inicia el tablero de ajedrez con las piezas en su posición inicial.
+
+♙ Mueven las BLANCAS
+Movimiento: Caballo de g1 a f3
+
+♟ Mueven las NEGRAS
+Movimiento: Peón de e7 a e5
+
+♙ Mueven las BLANCAS
+Movimiento: Peón de d2 a d4
+
+♟ Mueven las NEGRAS
+Movimiento: Peón de e5 captura en d4
+
+♙ Mueven las BLANCAS
+Movimiento: Alfil de c1 a f4
+
+♟ Mueven las NEGRAS
+Movimiento: Caballo de b8 a c6
+
+♙ Mueven las BLANCAS
+Movimiento: Reina de d1 a d2
+
+♟ Mueven las NEGRAS
+Movimiento: Peón de d7 a d6
+
+♙ Mueven las BLANCAS
+Movimiento: Enroque corto (Rey de e1 a g1, Torre de h1 a f1)
+
+...
+
+- Más adelante en la partida...
+
+♙ Mueven las BLANCAS
+Movimiento: Reina de f4 a f7
+
+
