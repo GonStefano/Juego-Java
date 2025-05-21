@@ -15,6 +15,13 @@ public class Caballo extends Pieza {
         }
     }
 
+    /**
+ * Verifica si el movimiento del caballo hacia la posición destino es válido.
+ * El movimiento es válido si tiene forma de "L": dos casillas en una dirección y una en la otra.
+ *
+ * @param destino posición a la que se desea mover el caballo.
+ * @return true si el movimiento es válido; false en caso contrario.
+ */
     public boolean movimiento(Posicion destino) {
         Posicion origen = this.getPosicion();
 

@@ -15,6 +15,13 @@ public class Alfil extends Pieza{
         }
     }
 
+    /**
+ * Verifica si el movimiento del alfil hacia la posición destino es válido.
+ * Un movimiento es válido si es diagonal y no es la misma casilla.
+ *
+ * @param destino posición a la que se desea mover el alfil.
+ * @return true si el movimiento es diagonal válido; false en caso contrario.
+ */
     public boolean movimiento(Posicion destino) {
         Posicion origen = this.getPosicion();
         int diagonalX = Math.abs(destino.getX() - origen.getX());

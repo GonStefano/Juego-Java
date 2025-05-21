@@ -7,6 +7,13 @@ public class Torre extends Pieza {
         super(color, posicion);
     }
 
+    /**
+ * Verifica si el movimiento de la torre hacia la posición destino es válido.
+ * El movimiento es válido si es horizontal o vertical.
+ *
+ * @param destino posición a la que se desea mover la torre.
+ * @return true si el movimiento es válido; false en caso contrario.
+ */
     public boolean movimiento(Posicion destino) {
         Posicion origen = this.getPosicion();
 

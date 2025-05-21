@@ -6,6 +6,13 @@ public class Peon extends Pieza {
         super(color, posicion);
     }
 
+    /**
+ * Verifica si el movimiento del peón hacia la posición destino es válido.
+ * Permite avanzar una casilla, dos desde la posición inicial, o moverse en diagonal para capturar.
+ *
+ * @param destino posición a la que se desea mover el peón.
+ * @return true si el movimiento es válido; false en caso contrario.
+ */
     public boolean movimiento(Posicion destino) {
         Posicion origen = this.getPosicion();
 
