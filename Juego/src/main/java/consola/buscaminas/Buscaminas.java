@@ -3,15 +3,16 @@ package consola.buscaminas;
 import java.util.*;
 
 public class Buscaminas {
-    private static final char MINA = '*';
-    private static final char VACIO = ' ';
-    private static final char BANDERA = 'F';
+    protected final char MINA = '*';
+    protected final char VACIO = ' ';
+    protected final char BANDERA = 'F';
 
-    char[][] tableroVisible;
-    private char[][] tableroMinas;
-    private boolean[][] descubierto;
-    private boolean primeraJugada = true;
-    private int filas, columnas, minas;
+    protected char[][] tableroVisible;
+    protected char[][] tableroMinas;
+    protected boolean[][] descubierto;
+
+    protected boolean primeraJugada = true;
+    protected int filas, columnas, minas;
 
     /**
      * Constructor que inicializa el juego según el nivel de dificultad.
