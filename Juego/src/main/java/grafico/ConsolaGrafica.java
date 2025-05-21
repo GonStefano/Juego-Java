@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-import grafico.juegoBuscaminas.juegoBuscaminas.BuscaminasGUI;
+import grafico.buscaminas.BuscaminasGUI;
 import grafico.space.vista.ViewManager;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -33,14 +33,14 @@ public class ConsolaGrafica extends JFrame {
 
         // Botones con colores personalizados
         JButton btnBuscaminas = crearBotonRedondeado("Buscaminas", new Color(63, 101, 237));
-        JButton btnShooter = crearBotonRedondeado("Space Shooter", new Color(63, 101, 237));
+        JButton btnShooter = crearBotonRedondeado("Space Runner", new Color(63, 101, 237));
 
         // Manejador de eventos
         ActionListener juegoListener = e -> {
             String juego = ((JButton) e.getSource()).getText();
             if (juego.equals("Buscaminas")) {
                 SwingUtilities.invokeLater(() -> new BuscaminasGUI());
-            } else if (juego.equals("Space Shooter")) {
+            } else if (juego.equals("Space Runner")) {
                 lanzarSpaceShooterFX();
             } else {
                 JOptionPane.showMessageDialog(this, "Lanzando " + juego + "...");

@@ -9,7 +9,7 @@ import grafico.space.modelo.InfoLabel;
 import grafico.space.modelo.BotonSpace;
 import grafico.space.modelo.Subescena;
 import grafico.space.entidades.*;
-import grafico.space.vista.GameViewManager;
+import grafico.space.vista.GestorJuego;
 
 import java.util.ArrayList;
 
@@ -78,7 +78,7 @@ public class ElegirNave {
             public void handle(ActionEvent actionEvent) {
 
                 if (choosenShip != null){
-                    GameViewManager game = new GameViewManager(mainStage);
+                    GestorJuego game = new GestorJuego(mainStage);
                     game.createNewGame(choosenShip);
                 }
             }
