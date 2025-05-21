@@ -52,6 +52,10 @@ public class ViewManager {
         scores = new XMLScoreManager();
     }
 
+    /**
+     * Muestra una subescena en el menú, ocultando la anterior si la hay.
+     * @param subscene La subescena que se desea mostrar.
+     */
     private void showSubScene(Subescena subscene){
 
             if (subToHide != null){
@@ -82,6 +86,10 @@ public class ViewManager {
         return mainStage;
     }
 
+    /**
+     * Añade un botón al menú principal y lo posiciona en el panel.
+     * @param botton Botón de tipo BotonSpace que se va a añadir.
+     */
     private void addMenuBotton(BotonSpace botton){
         botton.setLayoutX(menuBottonX);
         botton.setLayoutY(menuBottonY + bottons.size() * 100);
@@ -90,6 +98,9 @@ public class ViewManager {
 
     }
 
+    /**
+     * Crea y configura el botón "START", que permite al usuario elegir una nave.
+     */
     private void createStartBotton(){
         BotonSpace start = new BotonSpace("START");
         addMenuBotton(start);
@@ -107,6 +118,9 @@ public class ViewManager {
         });
     }
 
+    /**
+     * Crea y configura el botón "SCORE", que muestra las estadísticas del juego.
+     */
     private void createScoreBotton(){
         BotonSpace score = new BotonSpace("SCORE");
         addMenuBotton(score);
@@ -124,6 +138,9 @@ public class ViewManager {
         });
     }
 
+    /**
+     * Crea y configura el botón "HELP", que muestra la ayuda del juego.
+     */
     private void createHelpBotton(){
         BotonSpace help = new BotonSpace("HELP");
         addMenuBotton(help);
@@ -141,6 +158,9 @@ public class ViewManager {
         });
     }
 
+    /**
+     * Crea y configura el botón "CREDITS", que muestra los créditos del juego.
+     */
     private void createCreditsBotton(){
         BotonSpace credits = new BotonSpace("CREDITS");
         addMenuBotton(credits);
@@ -158,6 +178,9 @@ public class ViewManager {
         });
     }
 
+    /**
+     * Crea y configura el botón "EXIT", que cierra la aplicación.
+     */
     private void createExitBotton(){
         BotonSpace exit = new BotonSpace("EXIT");
         addMenuBotton(exit);
@@ -170,6 +193,9 @@ public class ViewManager {
         });
     }
 
+    /**
+     * Crea y añade todos los botones del menú principal, incluyendo el logo.
+     */
     private void  createBotton(){
         createStartBotton();
         createScoreBotton();
@@ -180,12 +206,18 @@ public class ViewManager {
 
     }
 
+    /**
+     * Establece la imagen de fondo del menú principal con repetición.
+     */
     private void createBackground(){
         Image bg = new Image("deep_blue.png",256,256,false,true);
         BackgroundImage background = new BackgroundImage(bg, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
         mainPane.setBackground(new Background(background));
     }
 
+    /**
+     * Crea el logo del juego y le añade efectos al pasar el mouse sobre él.
+     */
     private void createLogo(){
         ImageView logo = new ImageView("space_runner.png");
         logo.setLayoutX(400);
