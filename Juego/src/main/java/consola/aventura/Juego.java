@@ -207,16 +207,12 @@ public class Juego {
         if (!gestor.verificarJugador(nombre)){
             if (clase.equalsIgnoreCase("Guerrero")){
                 gestor.jugadores.add(new Jugador(nombre, clase, 100, 1, 40, 0));
-                System.out.println("guerrero");
             } else if (clase.equalsIgnoreCase("Mago")) {
                 gestor.jugadores.add(new Jugador(nombre, clase, 60, 1, 80, 0));
-                System.out.println("mago");
             } else if (clase.equalsIgnoreCase("Ladron")) {
                 gestor.jugadores.add(new Jugador(nombre, clase, 80, 1, 50, 0));
-                System.out.println("ladron");
             } else if (clase.equalsIgnoreCase("Arquero")) {
                 gestor.jugadores.add(new Jugador(nombre, clase, 75, 1, 60, 0));
-                System.out.println("arquero");
             }
             gestor.guardarJugador();
             System.out.println("🎉 Héroe creado exitosamente. ¡Prepárate para la aventura!\n");
