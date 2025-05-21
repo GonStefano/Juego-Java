@@ -53,11 +53,11 @@ public class Tablero {
     }
 
     /**
- * Solicita un movimiento al usuario, lo valida y lo ejecuta. 
- * Termina el juego si un rey ha sido capturado.
- *
- * @return true si el movimiento fue válido y ejecutado; false en caso contrario.
- */
+     * Solicita un movimiento al usuario, lo valida y lo ejecuta.
+     * Termina el juego si un rey ha sido capturado.
+     *
+     * @return true si el movimiento fue válido y ejecutado; false en caso contrario.
+     */
     public boolean introducirMovimiento() {
         if (!hayReyVivo(true)) {
                 System.out.println("Fin del juego: ¡El rey blanco ha sido capturado!");
@@ -133,14 +133,14 @@ public class Tablero {
     }
 
     /**
- * Mueve una pieza desde la posición de origen a la de destino si el movimiento es válido.
- * 
- * @param origen  posición inicial de la pieza.
- * @param destino posición final a la que se desea mover la pieza.
- * @return true si el movimiento se realiza correctamente.
- * @throws MovimientoInvalidoExcepcion si el movimiento no es permitido.
- * @throws CapturaAliadaExcepcion si se intenta capturar una pieza del mismo color.
- */
+     * Mueve una pieza desde la posición de origen a la de destino si el movimiento es válido.
+     *
+     * @param origen  posición inicial de la pieza.
+     * @param destino posición final a la que se desea mover la pieza.
+     * @return true si el movimiento se realiza correctamente.
+     * @throws MovimientoInvalidoExcepcion si el movimiento no es permitido.
+     * @throws CapturaAliadaExcepcion si se intenta capturar una pieza del mismo color.
+     */
     public boolean moverPieza(Posicion origen, Posicion destino) throws MovimientoInvalidoExcepcion, CapturaAliadaExcepcion {
         int filaOrigen = 8 - origen.getY();
         int columnaOrigen = origen.getX() - 'A';
@@ -200,13 +200,13 @@ public class Tablero {
     }
 
     /**
- * Verifica si hay piezas entre la posición de origen y la de destino
- * en movimientos horizontales, verticales o diagonales.
- *
- * @param origen  posición inicial.
- * @param destino posición final.
- * @return true si hay piezas en el camino; false en caso contrario.
- */
+     * Verifica si hay piezas entre la posición de origen y la de destino
+     * en movimientos horizontales, verticales o diagonales.
+     *
+     * @param origen  posición inicial.
+     * @param destino posición final.
+     * @return true si hay piezas en el camino; false en caso contrario.
+     */
     private boolean hayPiezasEntre(Posicion origen, Posicion destino) {
         int filaOrigen = 8 - origen.getY();
         int filaDestino = 8 - destino.getY();
@@ -264,11 +264,11 @@ public class Tablero {
     }	
 
     /**
- * Verifica si el rey del color especificado sigue en el tablero.
- *
- * @param color true para blanco, false para negro.
- * @return true si el rey está vivo; false si ha sido capturado.
- */
+     * Verifica si el rey del color especificado sigue en el tablero.
+     *
+     * @param color true para blanco, false para negro.
+     * @return true si el rey está vivo; false si ha sido capturado.
+     */
     public boolean hayReyVivo(boolean color) {
         for (int fila = 0; fila < 8; fila++) {
             for (int col = 0; col < 8; col++) {
