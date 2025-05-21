@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class GestorHabilidades implements Serializable {
-    private ArrayList<Habilidad> habilidades;
+    public ArrayList<Habilidad> habilidades;
 
 
     public GestorHabilidades() {
