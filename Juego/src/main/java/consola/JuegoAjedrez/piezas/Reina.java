@@ -15,6 +15,14 @@ public class Reina extends Pieza {
         }
     }
 
+    /**
+ * Verifica si el movimiento de la reina hacia la posición destino es válido.
+ * El movimiento es válido si es horizontal, vertical o diagonal.
+ *
+ * @param destino posición a la que se desea mover la reina.
+ * @return true si el movimiento es válido; false en caso contrario.
+ */
+
      public boolean movimiento(Posicion destino) { // juntando la logica de la torre y el alfil sacamos la reina
         Posicion origen = this.getPosicion();
 
