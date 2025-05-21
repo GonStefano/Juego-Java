@@ -15,6 +15,13 @@ public class Rey extends Pieza {
         }
     }
 
+    /**
+ * Verifica si el movimiento del rey hacia la posición destino es válido.
+ * El rey no puede permanecer en la misma casilla.
+ *
+ * @param destino posición a la que se desea mover el rey.
+ * @return true si el movimiento es a una casilla distinta; false en caso contrario.
+ */
     public boolean movimiento(Posicion destino) {
         Posicion origen = this.getPosicion();
         
