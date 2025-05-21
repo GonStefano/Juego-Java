@@ -161,4 +161,12 @@ public class Buscaminas {
                 if (descubierto[i][j]) descubiertas++;
         return descubiertas == (filas * columnas - minas);
     }
+
+    public char[][] getTableroVisible() {
+        return tableroVisible;
+    }
+
+    public char[][] getTableroMinas() {
+        return tableroMinas;
+    }
 }
