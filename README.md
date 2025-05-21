@@ -151,44 +151,6 @@ El Goblin ataca y te hace 5 de daño.
 
 Volviendo al menú principal...
 ```
-###  SpaceRunner (Juego en 2D)
-
-**SpaceRunner** es un juego arcade en 2D donde el jugador controla una nave espacial que debe esquivar meteoritos y recolectar estrellas para aumentar su puntaje.
-
-#####  Mecánica del Juego
-
-- El jugador maneja una **nave espacial** que se desplaza en un entorno horizontal o vertical (según diseño).
-- Caen **meteoritos** desde la parte superior de la nave. Si la nave colisiona con un meteorito, se pierde una vida de tres.
-- Aparecen **estrellas** que el jugador debe recoger para acumular puntos.
-
-#####  Controles
-
-- Flechas del teclado (o teclas WASD) para mover la nave.
-
-#####  Objetivo
-
-- Sobrevivir el mayor tiempo posible mientras se recolectan estrellas.
-- Obtener la **máxima puntuación posible**.
-
-#####  Características Implementadas o Planeadas
-
-- [x] Movimiento de la nave
-- [x] Generación aleatoria de meteoritos
-- [x] Recolección de estrellas
-- [x] Sistema de puntuación
-- [ ] Aumento progresivo de dificultad
-- [ ] Menú de inicio y pantalla de Game Over
-
-#####  Recursos Gráficos
-
-- Imagenes para la nave, meteoritos y estrellas
-- Fondo espacial animado (opcional)
-
-#####  Tecnologías
-
-- **JavaFX** para el renderizado gráfico y manejo de eventos
-- **POO** para estructurar entidades como `Nave`, `Meteorito`, `Estrella`, `Juego`, etc.
-
 ### Juego de Ajedrez  
 Juego de Ajedrez por Turnos en Consola
 
@@ -289,6 +251,46 @@ Movimiento: Enroque corto (Rey de e1 a g1, Torre de h1 a f1)
 ...
 
 - Más adelante en la partida...
+```
+
+###  SpaceRunner (Juego en 2D)
+
+**SpaceRunner** es un juego arcade en 2D donde el jugador controla una nave espacial que debe esquivar meteoritos y recolectar estrellas para aumentar su puntaje.
+
+#####  Mecánica del Juego
+
+- El jugador maneja una **nave espacial** que se desplaza en un entorno horizontal o vertical (según diseño).
+- Caen **meteoritos** desde la parte superior de la nave. Si la nave colisiona con un meteorito, se pierde una vida de tres.
+- Aparecen **estrellas** que el jugador debe recoger para acumular puntos.
+
+#####  Controles
+
+- Flechas del teclado (o teclas WASD) para mover la nave.
+
+#####  Objetivo
+
+- Sobrevivir el mayor tiempo posible mientras se recolectan estrellas.
+- Obtener la **máxima puntuación posible**.
+
+#####  Características Implementadas o Planeadas
+
+- [x] Movimiento de la nave
+- [x] Generación aleatoria de meteoritos
+- [x] Recolección de estrellas
+- [x] Sistema de puntuación
+- [ ] Aumento progresivo de dificultad
+- [ ] Menú de inicio y pantalla de Game Over
+
+#####  Recursos Gráficos
+
+- Imagenes para la nave, meteoritos y estrellas
+- Fondo espacial animado (opcional)
+
+#####  Tecnologías
+
+- **JavaFX** para el renderizado gráfico y manejo de eventos
+- **POO** para estructurar entidades como `Nave`, `Meteorito`, `Estrella`, `Juego`, etc.
+
 
 ♙ Mueven las BLANCAS
 Movimiento: Reina de f4 a f7
